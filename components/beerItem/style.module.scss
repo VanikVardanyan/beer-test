@@ -1,0 +1,51 @@
+.wrapper {
+  width: 300px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    background-color: aquamarine;
+  }
+}
+
+.about {
+  .name {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .tagline {
+    color: cadetblue;
+    margin-bottom: 5px;
+  }
+  .description {
+    font-size: 14px;
+    color: grey;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .abv {
+    color: blue;
+    margin-bottom: 5px;
+  }
+  .pairing {
+    color: grey;
+    margin-bottom: 5px;
+  }
+}
+
+.rowName {
+  color: chocolate;
+}

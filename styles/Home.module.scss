@@ -1,0 +1,42 @@
+//Можно было бы конечно вложености сделать красивее типо через амперсант и название через _BEM
+
+.beersWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.searchContainer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .searchInp {
+    width: 200px;
+    height: 40px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+    color: darkblue;
+    font-size: 20px;
+    padding: 5px;
+  }
+  .searchBtn {
+    height: 40px;
+    background-color: firebrick;
+    border: 1px solid rebeccapurple;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .errorText {
+    color: red;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  color: crimson;
+}

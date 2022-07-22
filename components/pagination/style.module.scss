@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+}
+.page {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: gray !important;
+  }
+}
+
+.vavigate {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  margin-left: 5px;
+  color: rebeccapurple;
+  cursor: pointer;
+  &:hover {
+    background-color: lemonchiffon;
+  }
+  &:disabled {
+    background-color: gray;
+  }
+}
