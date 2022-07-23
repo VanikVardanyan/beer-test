@@ -1,21 +1,24 @@
+import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import request from "./api";
-import { BeerItems } from "../components/beerItem";
-import { Pagination } from "../components/pagination";
-import { useRouter } from "next/router";
 
 import styles from "../styles/Home.module.scss";
-// Можно было бы добавить общие стили через mixin итд
-export default function Home() {
+import { IBeer } from "../types";
+import { BeerItems } from "../components/beerItem";
+import { Pagination } from "../components/pagination";
+
+const Home: NextPage = () => {
   //Весь компонент можно было перебить на мелкие
   const router = useRouter();
   const [page, setPage] = useState(1);
-  const [beers, setBeers] = useState([]);
+  const [beers, setBeers] = useState<IBeer[] | []>([]);
   const [loading, setLoading] = useState(false);
   const [searchBeer, setSearchBeer] = useState("");
   const [noResult, setNoResult] = useState(false);
   const per_page = 10; //можно было бы сделать это динамическим
-  const changeRouter = (query) => {
+
+  const changeRouter = (query: any) => {
     router.push(
       {
         pathname: "/",
@@ -25,7 +28,7 @@ export default function Home() {
       {},
     );
   };
-  const handleNavigate = (type) => {
+  const handleNavigate = (type: string) => {
     if (type === "next") {
       changeRouter({ page: page + 1 });
       return;
@@ -33,7 +36,7 @@ export default function Home() {
     changeRouter({ page: page - 1 });
   };
 
-  const handleChangePage = (page) => {
+  const handleChangePage = (page: number) => {
     changeRouter({ page });
     setPage(page);
   };
@@ -72,7 +75,7 @@ export default function Home() {
   useEffect(() => {
     beersRequest();
     if (router.isReady) {
-      setPage(+router.query.page || 1);
+      setPage(+router?.query?.page! || 1);
     }
   }, [beersRequest, router.query.page, router.isReady]);
 
@@ -113,4 +116,6 @@ export default function Home() {
       />
     </div>
   );
-}
+};
+
+export default Home;

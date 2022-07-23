@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { IBeer } from "../../types";
 import style from "./style.module.scss";
 
 export const BeerItems = ({
@@ -11,7 +12,7 @@ export const BeerItems = ({
   food_pairing,
   id,
   checkedsBeer,
-}) => {
+}: IBeer) => {
   const router = useRouter();
   const handleToBeer = () => {
     if (checkedsBeer) {

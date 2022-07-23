@@ -1,5 +1,5 @@
 {
-  "name": "piva",
+  "name": "beer-ts",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,12 +12,16 @@
     "axios": "^0.27.2",
     "next": "12.2.3",
     "nextjs-progressbar": "^0.0.14",
-    "node-sass": "^7.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "18.0.6",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
     "eslint": "8.20.0",
-    "eslint-config-next": "12.2.3"
+    "eslint-config-next": "12.2.3",
+    "node-sass": "^7.0.1",
+    "typescript": "4.7.4"
   }
 }

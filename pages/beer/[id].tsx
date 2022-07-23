@@ -1,8 +1,18 @@
+import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { BeerItems } from "../../components/beerItem";
+import { GetServerSidePropsContext, GetServerSideProps } from "next";
+
+import { IBeer } from "../../types";
 import request from "../api";
 
-export async function getServerSideProps(context) {
+type PageProps = {
+  beer: IBeer[] | [];
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
   const { id } = context.query;
 
   try {
@@ -19,9 +29,9 @@ export async function getServerSideProps(context) {
       },
     };
   }
-}
+};
 
-export default function Beer({ beer }) {
+const Beer: NextPage<PageProps> = ({ beer }) => {
   const router = useRouter();
   return (
     <div>
@@ -33,4 +43,6 @@ export default function Beer({ beer }) {
       )}
     </div>
   );
-}
+};
+
+export default Beer;
