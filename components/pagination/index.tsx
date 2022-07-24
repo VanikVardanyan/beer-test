@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { IPagination } from "../../types";
+
 import style from "./style.module.scss";
 import { clsx } from "clsx";
 

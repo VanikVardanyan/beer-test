@@ -1,11 +1,10 @@
-import { NextPage } from "next";
+import { GetServerSidePropsContext, GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { BeerItems } from "../../components/beerItem";
-import { GetServerSidePropsContext, GetServerSideProps } from "next";
-import style from "../../components/beerItem/style.module.scss";
-
-import { IBeer } from "../../types";
 import request from "../api";
+import { IBeer } from "../../types";
+
+import style from "../../components/beerItem/style.module.scss";
 
 type PageProps = {
   beer: IBeer[] | [];

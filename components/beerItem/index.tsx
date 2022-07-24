@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { IBeer } from "../../types";
+
 import style from "./style.module.scss";
 import { clsx } from "clsx";
 
