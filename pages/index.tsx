@@ -17,7 +17,6 @@ const Home: NextPage = () => {
   const [searchBeer, setSearchBeer] = useState("");
   const [noResult, setNoResult] = useState(false);
   const [row, setRow] = useState(10);
-  const per_page = 10; //можно было бы сделать это динамическим
 
   const handleChangeRow = (value: number) => {
     setRow(value);
@@ -42,7 +41,6 @@ const Home: NextPage = () => {
 
   const handleChangePage = (page: number) => {
     changeRouter({ page });
-    setPage(page);
   };
   const handleSearch = async () => {
     if (!searchBeer) {
@@ -79,7 +77,7 @@ const Home: NextPage = () => {
       console.log(e);
     }
   }, [page, row]);
-
+  console.log(page, "is page");
   useEffect(() => {
     beersRequest();
     if (router.isReady) {
