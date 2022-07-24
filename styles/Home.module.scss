@@ -19,6 +19,10 @@
     color: darkblue;
     font-size: 20px;
     padding: 5px;
+    @media (max-width: 630px) {
+      width: 150px;
+      height: 30px;
+    }
   }
   .searchBtn {
     height: 40px;
@@ -30,6 +34,11 @@
     cursor: pointer;
     &:disabled {
       background-color: gray;
+    }
+    @media (max-width: 630px) {
+      width: 60px;
+      height: 30px;
+      font-size: 14px;
     }
   }
   .errorText {

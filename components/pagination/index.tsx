@@ -57,12 +57,14 @@ export const Pagination = ({
           {">"}
         </button>
       </div>
-      <label htmlFor="cars">Rows per page: </label>
-      <select value={row} onChange={handleChangeRowSelect}>
-        {options.map(({ value, label }) => {
-          return <option value={value}>{label}</option>;
-        })}
-      </select>
+      <div className={style.select}>
+        <label htmlFor="cars">Rows per page: </label>
+        <select value={row} onChange={handleChangeRowSelect}>
+          {options.map(({ value, label }) => {
+            return <option value={value}>{label}</option>;
+          })}
+        </select>
+      </div>
     </div>
   );
 };
