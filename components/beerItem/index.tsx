@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { IBeer } from "../../types";
 import style from "./style.module.scss";
+import { clsx } from "clsx";
 
 export const BeerItems = ({
   image_url,
@@ -29,11 +30,8 @@ export const BeerItems = ({
   };
   return (
     <div
-      className={style.wrapper}
+      className={clsx(style.wrapper, { [style.wrapper_checked]: checkedsBeer })}
       onClick={handleToBeer}
-      style={{
-        width: checkedsBeer ? "100%" : "300px",
-      }}
     >
       <div>
         <Image src={image_url || "/"} alt="beer" width={40} height={120} />

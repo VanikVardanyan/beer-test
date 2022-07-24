@@ -37,7 +37,6 @@ const Beer: NextPage<PageProps> = ({ beer }) => {
   return (
     <div className={style.checkedBeerWrapper}>
       <button onClick={() => router.back()} className={style.backButton}>
-        {" "}
         {"<="} Вернуться назад
       </button>
       {beer.length ? (

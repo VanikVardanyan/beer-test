@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import { IPagination } from "../../types";
 import style from "./style.module.scss";
+import { clsx } from "clsx";
 
 export const Pagination = ({
   totalPage,
@@ -38,11 +39,9 @@ export const Pagination = ({
           return (
             <button
               key={item}
-              className={style.page}
-              style={{
-                background: page == item ? "chocolate" : "inherit",
-                color: page == item ? "white" : "black",
-              }}
+              className={clsx(style.page, {
+                [style.page_active]: page == item,
+              })}
               onClick={() => handleChange(item)}
             >
               {item}

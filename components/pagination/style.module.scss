@@ -26,6 +26,13 @@
   margin-left: 5px;
   color: white;
   cursor: pointer;
+  background: inherit;
+  color: black;
+  &_active {
+    background: chocolate;
+    color: white;
+    font-size: 19px;
+  }
   @media (max-width: 630px) {
     width: 20px;
     height: 20px;
