@@ -12,6 +12,8 @@ export interface IBeer {
 export interface IPagination {
   totalPage: number;
   page: number;
+  row: number;
   handleChange: (item: number) => void;
   handleNavigate: (type: string) => void;
+  handleChangeRow: (type: number) => void;
 }

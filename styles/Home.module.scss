@@ -22,12 +22,15 @@
   }
   .searchBtn {
     height: 40px;
-    background-color: firebrick;
+    background-color: darkcyan;
     border: 1px solid rebeccapurple;
     border-radius: 5px;
     color: white;
     font-size: 20px;
     cursor: pointer;
+    &:disabled {
+      background-color: gray;
+    }
   }
   .errorText {
     color: red;

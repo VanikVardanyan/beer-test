@@ -1,0 +1,26 @@
+.wrpapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-image: linear-gradient(
+    to right,
+    rgba(123, 241, 241, 0),
+    rgb(229, 214, 145)
+  );
+}
+.navbar_wrapper {
+  position: relative;
+  height: 40px;
+  .navbar {
+    height: 40px;
+    background-color: chocolate;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

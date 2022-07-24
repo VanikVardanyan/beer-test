@@ -28,7 +28,13 @@ export const BeerItems = ({
     );
   };
   return (
-    <div className={style.wrapper} onClick={handleToBeer}>
+    <div
+      className={style.wrapper}
+      onClick={handleToBeer}
+      style={{
+        width: checkedsBeer ? "100%" : "300px",
+      }}
+    >
       <div>
         <Image src={image_url || "/"} alt="beer" width={40} height={120} />
       </div>

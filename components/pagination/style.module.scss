@@ -1,12 +1,20 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 20px;
+}
 .pagination {
   display: flex;
+  justify-content: center;
+  margin-right: 20px;
 }
 .page {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
-  font-size: 20px;
+  font-size: 14px;
   margin-left: 5px;
   color: white;
   cursor: pointer;
@@ -15,14 +23,15 @@
   }
 }
 
-.vavigate {
-  width: 40px;
-  height: 40px;
+.navigate {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
   font-size: 20px;
   margin-left: 5px;
-  color: rebeccapurple;
+  color: darkcyan;
+  background-color: rgb(187, 160, 147);
   cursor: pointer;
   &:hover {
     background-color: lemonchiffon;

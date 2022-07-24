@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { BeerItems } from "../../components/beerItem";
 import { GetServerSidePropsContext, GetServerSideProps } from "next";
+import style from "../../components/beerItem/style.module.scss";
 
 import { IBeer } from "../../types";
 import request from "../api";
@@ -34,8 +35,11 @@ export const getServerSideProps: GetServerSideProps = async (
 const Beer: NextPage<PageProps> = ({ beer }) => {
   const router = useRouter();
   return (
-    <div>
-      <button onClick={() => router.back()}> {"<="} Вернуться назад</button>
+    <div className={style.checkedBeerWrapper}>
+      <button onClick={() => router.back()} className={style.backButton}>
+        {" "}
+        {"<="} Вернуться назад
+      </button>
       {beer.length ? (
         <BeerItems {...beer[0]} checkedsBeer />
       ) : (

@@ -16,8 +16,12 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [searchBeer, setSearchBeer] = useState("");
   const [noResult, setNoResult] = useState(false);
+  const [row, setRow] = useState(10);
   const per_page = 10; //можно было бы сделать это динамическим
 
+  const handleChangeRow = (value: number) => {
+    setRow(value);
+  };
   const changeRouter = (query: any) => {
     router.push(
       {
@@ -41,6 +45,9 @@ const Home: NextPage = () => {
     setPage(page);
   };
   const handleSearch = async () => {
+    if (!searchBeer) {
+      return;
+    }
     setLoading(true);
     try {
       const response = await request(`?beer_name=${searchBeer}`);
@@ -61,16 +68,17 @@ const Home: NextPage = () => {
     }
   };
   const beersRequest = useCallback(async () => {
+    setNoResult(false);
     setLoading(true);
     try {
-      const response = await request.get(`?page=${page}&per_page=${per_page}`);
+      const response = await request.get(`?page=${page}&per_page=${row}`);
       setBeers(response.data);
       setLoading(false);
     } catch (e) {
       setLoading(false);
       console.log(e);
     }
-  }, [page, per_page]);
+  }, [page, row]);
 
   useEffect(() => {
     beersRequest();
@@ -88,12 +96,27 @@ const Home: NextPage = () => {
           onChange={(e) => setSearchBeer(e.target.value)}
           className={styles.searchInp}
         />
-        <button onClick={handleSearch} className={styles.searchBtn}>
+        <button
+          onClick={handleSearch}
+          className={styles.searchBtn}
+          disabled={!searchBeer}
+        >
           search
         </button>
+        {/* Можно было использовать пагинцию mui или другой либы но я решил написать свою, не большую */}
         {noResult && (
           <span className={styles.errorText}>Такого пива не существует</span>
         )}
+      </div>
+      <div>
+        <Pagination
+          totalPage={10} //не нашел общее количество чтобы разделить на per_page
+          page={page}
+          handleChange={handleChangePage}
+          handleNavigate={handleNavigate}
+          row={row}
+          handleChangeRow={handleChangeRow}
+        />
       </div>
 
       <>
@@ -107,13 +130,6 @@ const Home: NextPage = () => {
           </div>
         )}
       </>
-      {/* Можно было использовать пагинцию mui или другой либы но я решил написать свою, не большую */}
-      <Pagination
-        totalPage={10} //не нашел общее количество чтобы разделить на per_page
-        page={page}
-        handleChange={handleChangePage}
-        handleNavigate={handleNavigate}
-      />
     </div>
   );
 };
