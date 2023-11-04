@@ -34,6 +34,7 @@ export const BeerItems = ({
       className={clsx(style.wrapper, { [style.wrapper_checked]: checkedsBeer })}
       onClick={handleToBeer}
     >
+      
       <div>
         <Image src={image_url || "/"} alt="beer" width={40} height={120} />
       </div>
