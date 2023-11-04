@@ -16,6 +16,9 @@ export const BeerItems = ({
   checkedsBeer,
 }: IBeer) => {
   const router = useRouter();
+
+  console.log('very important commit')
+
   const handleToBeer = () => {
     if (checkedsBeer) {
       return;
@@ -29,6 +32,7 @@ export const BeerItems = ({
       {},
     );
   };
+
   return (
     <div
       className={clsx(style.wrapper, { [style.wrapper_checked]: checkedsBeer })}
